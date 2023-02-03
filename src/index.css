@@ -8,6 +8,14 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: inherit; 
+  text-decoration: inherit; 
+}
+
+p {
+  margin:0;
 }

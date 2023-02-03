@@ -1,0 +1,22 @@
+header {
+    background-color: #020203;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 91px;
+    align-items: center;
+}
+
+.main-logo {
+    height: 61px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 10vw;
+    padding-right: 91px;
+    font-weight: 500;
+    font-size: 24px;
+}

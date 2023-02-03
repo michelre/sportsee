@@ -7,13 +7,15 @@ import Dashboard from './Dashboard';
 function App() {
   return (
     <Router>
-      <Header />
-      <main>
-        <SideBar />
-        <Routes >
-          <Route index element={<Dashboard />} />
-        </Routes>
-      </main>
+      <div className='app-container'>
+        <Header />
+        <main>
+          <SideBar />
+          <Routes >
+            <Route index element={<Dashboard />} />
+          </Routes>
+        </main>
+      </div>
     </Router>
   );
 }

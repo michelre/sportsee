@@ -1,0 +1,36 @@
+.sidebar {
+    background-color: #020203;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 117px;
+    height: 100vh;
+    align-items: center;
+
+}
+
+.sidebar a {
+    display: block;
+}
+
+.copyrights {
+    color: white;
+    font-weight: 500;
+    font-size: 12px;
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+    align-self: center;
+    padding-bottom: 8vh;
+}
+
+.sport-icon {
+    width: 64px;
+}
+
+.sports-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    
+}

@@ -10,10 +10,10 @@ const Dashboard = () => {
     const { userAverageSession } = useUserAverageSession();
     const { userPerformance } = useUserPerformance();
 
-    console.log(userData);
-    console.log(userActivity);
-    console.log(userAverageSession);
-    console.log(userPerformance);
+    // console.log(userData);
+    // console.log(userActivity);
+    // console.log(userAverageSession);
+    // console.log(userPerformance);
 
     return (
         <div>
