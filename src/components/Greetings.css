@@ -1,0 +1,13 @@
+.greetings h1 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.first-name {
+    color: #FF0101;
+}
+
+.greetings p {
+    font-size: 18px;
+    font-weight: 400;
+}

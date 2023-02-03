@@ -5,10 +5,12 @@ header {
     justify-content: space-between;
     height: 91px;
     align-items: center;
+    padding-left: 29px;
 }
 
 .main-logo {
     height: 61px;
+
 }
 
 .nav-list {

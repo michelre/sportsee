@@ -1,3 +1,4 @@
+import Greetings from "./components/Greetings";
 import useUserActivity from "./hooks/useUserActivity";
 import useUserAverageSession from "./hooks/useUserAverageSession";
 import useUserData from "./hooks/useUserData";
@@ -5,7 +6,7 @@ import useUserPerformance from "./hooks/useUserPerformance";
 
 const Dashboard = () => {
 
-    const { userData } = useUserData();
+    const { userData, userName } = useUserData();
     const { userActivity } = useUserActivity();
     const { userAverageSession } = useUserAverageSession();
     const { userPerformance } = useUserPerformance();
@@ -17,8 +18,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <div>Dashboard</div>
-
+            <Greetings userName={userName}/>
         </div>
 
     )

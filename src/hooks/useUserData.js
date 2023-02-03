@@ -5,6 +5,7 @@ let userId = 12;
 
 const useUserData = () => {
     const [userData, setUserData] = useState(null);
+    const [userName, setUserName] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
@@ -21,6 +22,7 @@ const useUserData = () => {
             .then(data => {
                 setIsPending(false);
                 setUserData(data.data);
+                setUserName(data.data.userInfos.firstName);
                 setError(null);
             })
             .catch(err => {
@@ -43,7 +45,7 @@ const useUserData = () => {
     // console.log(userData);
 
 
-    return { userData, isPending, error };
+    return { userData, userName, isPending, error };
 }
 
 export default useUserData;
