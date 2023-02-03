@@ -3,15 +3,15 @@ import { useState, useEffect } from 'react';
 //Mock userId
 let userId = 12;
 
-const useUserData = () => {
-    const [userData, setUserData] = useState(null);
+const useUserActivity = () => {
+    const [userActivity, setUserActivity] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const abortCont = new AbortController();
 
-        fetch(`http://localhost:3000/user/${userId}`, { signal: abortCont.signal })
+        fetch(`http://localhost:3000/user/${userId}/activity`, { signal: abortCont.signal })
             .then(res => {
                 if (!res.ok) { // error coming back from server
                     throw Error('could not fetch the data for that resource');
@@ -20,12 +20,12 @@ const useUserData = () => {
             })
             .then(data => {
                 setIsPending(false);
-                setUserData(data.data);
+                setUserActivity(data.data);
                 setError(null);
             })
             .catch(err => {
                 if (err.name === 'AbortError') {
-                    console.log('User data fetch aborted')
+                    console.log('User activity fetch aborted')
                 } else {
                     // auto catches network / connection error
                     setIsPending(false);
@@ -35,15 +35,13 @@ const useUserData = () => {
 
         // abort the fetch
         return () => abortCont.abort();
-    }, [`http://localhost:3000/user/${userId}`])
-
+    }, [`http://localhost:3000/user/${userId}/activity`])
 
     // //Check data
-    // console.log("USERDATA-------");
-    // console.log(userData);
+    // console.log("ACTIVITY-------");
+    // console.log(userActivity);
 
-
-    return { userData, isPending, error };
+    return { userActivity, isPending, error };
 }
 
-export default useUserData;
+export default useUserActivity;

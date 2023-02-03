@@ -3,15 +3,15 @@ import { useState, useEffect } from 'react';
 //Mock userId
 let userId = 12;
 
-const useUserData = () => {
-    const [userData, setUserData] = useState(null);
+const useUserAverageSession = () => {
+    const [userAverageSession, setUserAverageSession] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const abortCont = new AbortController();
 
-        fetch(`http://localhost:3000/user/${userId}`, { signal: abortCont.signal })
+        fetch(`http://localhost:3000/user/${userId}/average-sessions`, { signal: abortCont.signal })
             .then(res => {
                 if (!res.ok) { // error coming back from server
                     throw Error('could not fetch the data for that resource');
@@ -20,12 +20,12 @@ const useUserData = () => {
             })
             .then(data => {
                 setIsPending(false);
-                setUserData(data.data);
+                setUserAverageSession(data.data);
                 setError(null);
             })
             .catch(err => {
                 if (err.name === 'AbortError') {
-                    console.log('User data fetch aborted')
+                    console.log('User average session fetch aborted')
                 } else {
                     // auto catches network / connection error
                     setIsPending(false);
@@ -35,15 +35,15 @@ const useUserData = () => {
 
         // abort the fetch
         return () => abortCont.abort();
-    }, [`http://localhost:3000/user/${userId}`])
+    }, [`http://localhost:3000/user/${userId}/average-sessions`])
 
 
     // //Check data
-    // console.log("USERDATA-------");
-    // console.log(userData);
+    // console.log("SESSIONS-------");
+    // console.log(userAverageSession);
 
 
-    return { userData, isPending, error };
+    return { userAverageSession, isPending, error };
 }
 
-export default useUserData;
+export default useUserAverageSession;
