@@ -16,10 +16,6 @@ a {
   text-decoration: inherit; 
 }
 
-p, h2{
+p, h2, h3{
   margin:0;
-}
-
-.macro-container img {
-  width: 60px;
 }

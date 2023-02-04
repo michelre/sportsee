@@ -7,6 +7,7 @@ const useUserData = () => {
     const [userData, setUserData] = useState(null);
     const [userName, setUserName] = useState(null);
     const [userMacros, setUserMacros] = useState(null);
+    const [userScore, setUserScore] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
@@ -25,6 +26,7 @@ const useUserData = () => {
                 setUserData(data.data);
                 setUserName(data.data.userInfos.firstName);
                 setUserMacros(data.data.keyData);
+                setUserScore(data.data.todayScore);
                 setError(null);
             })
             .catch(err => {
@@ -41,8 +43,8 @@ const useUserData = () => {
         return () => abortCont.abort();
     }, [`http://localhost:3000/user/${userId}`])
 
-    
-    return { userData, userName, userMacros, isPending, error };
+
+    return { userData, userName, userMacros, userScore, isPending, error };
 }
 
 export default useUserData;

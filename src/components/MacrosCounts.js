@@ -3,6 +3,7 @@ import calorieIcon from '../assets/calories-icon.png';
 import proteinIcon from '../assets/protein-icon.png';
 import carbsIcon from '../assets/carbs-icon.png';
 import lipidIcon from '../assets/fat-icon.png';
+import PropTypes from 'prop-types';
 
 const MacrosCounts = ({userMacros}) => {
 
@@ -49,6 +50,10 @@ const MacrosCounts = ({userMacros}) => {
         
     </div>
   )
+}
+
+MacrosCounts.propTypes = {
+    userMacros: PropTypes.object
 }
 
 export default MacrosCounts
