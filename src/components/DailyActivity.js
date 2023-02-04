@@ -10,7 +10,7 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
-function DailyActivity({ userActivity }) {
+const DailyActivity = ({ userActivity }) => {
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {

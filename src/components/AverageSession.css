@@ -1,0 +1,34 @@
+.average-session-container {
+    height: 260px;
+    width: 260px;
+background-color: #E60000;
+border-radius: 5px;
+overflow: hidden;
+}
+
+
+.average-session-tooltip{
+    width: 39px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 8px;
+    font-weight: 500;
+    background-color: #FFFFFF;
+}
+
+.average-session-title{
+    position: absolute;
+    margin-left: 34px;
+    margin-top: 29px;
+    z-index: 10;
+    max-width: 147px;
+    height: 48px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #FFFFFF; 
+    opacity: 0.5;
+}

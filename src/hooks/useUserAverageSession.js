@@ -8,6 +8,58 @@ const useUserAverageSession = () => {
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
+    //Format data, replaces day number by initial
+    const numberToDay = (sessionData) => {
+        const formattedSessionData = sessionData.map((obj) => {
+            if (obj.day === 1) {
+                return {
+                    day: "L",
+                    sessionLength: obj.sessionLength,
+                };
+            }
+            if (obj.day === 2) {
+                return {
+                    day: "M",
+                    sessionLength: obj.sessionLength,
+                };
+            }
+            if (obj.day === 3) {
+                return {
+                    day: "M",
+                    sessionLength: obj.sessionLength,
+                };
+            }
+            if (obj.day === 4) {
+                return {
+                    day: "J",
+                    sessionLength: obj.sessionLength,
+                };
+            }
+            if (obj.day === 5) {
+                return {
+                    day: "V",
+                    sessionLength: obj.sessionLength,
+                };
+            }
+            if (obj.day === 6) {
+                return {
+                    day: "S",
+                    sessionLength: obj.sessionLength,
+                };
+            }
+            if (obj.day === 7) {
+                return {
+                    day: "D",
+                    sessionLength: obj.sessionLength,
+                };
+            }
+            else {
+                return undefined
+            }
+        })
+        return formattedSessionData;
+    }
+
     useEffect(() => {
         const abortCont = new AbortController();
 
@@ -20,7 +72,7 @@ const useUserAverageSession = () => {
             })
             .then(data => {
                 setIsPending(false);
-                setUserAverageSession(data.data.sessions);
+                setUserAverageSession(numberToDay(data.data.sessions));
                 setError(null);
             })
             .catch(err => {
@@ -36,6 +88,7 @@ const useUserAverageSession = () => {
         // abort the fetch
         return () => abortCont.abort();
     }, [`http://localhost:3000/user/${userId}/average-sessions`])
+
 
 
     return { userAverageSession, isPending, error };
