@@ -20,7 +20,7 @@ const useUserAverageSession = () => {
             })
             .then(data => {
                 setIsPending(false);
-                setUserAverageSession(data.data);
+                setUserAverageSession(data.data.sessions);
                 setError(null);
             })
             .catch(err => {
@@ -36,11 +36,6 @@ const useUserAverageSession = () => {
         // abort the fetch
         return () => abortCont.abort();
     }, [`http://localhost:3000/user/${userId}/average-sessions`])
-
-
-    // //Check data
-    // console.log("SESSIONS-------");
-    // console.log(userAverageSession);
 
 
     return { userAverageSession, isPending, error };

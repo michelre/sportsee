@@ -1,0 +1,28 @@
+.daily-activity-container{
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    padding: 32px;
+    position: relative;
+}
+
+.daily-activity-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #20253A;
+    position: absolute;
+    top: 40px;
+
+}
+
+.daily-activity-tooltip{
+    background-color: #E60000;
+    color: white;
+    width: 39px;
+    height: 63px;
+    font-size: 7px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}

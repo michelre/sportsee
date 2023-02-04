@@ -20,7 +20,7 @@ const useUserActivity = () => {
             })
             .then(data => {
                 setIsPending(false);
-                setUserActivity(data.data);
+                setUserActivity(data.data.sessions);
                 setError(null);
             })
             .catch(err => {
@@ -36,10 +36,6 @@ const useUserActivity = () => {
         // abort the fetch
         return () => abortCont.abort();
     }, [`http://localhost:3000/user/${userId}/activity`])
-
-    // //Check data
-    // console.log("ACTIVITY-------");
-    // console.log(userActivity);
 
     return { userActivity, isPending, error };
 }
