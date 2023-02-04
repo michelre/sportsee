@@ -13,7 +13,7 @@ import Performance from "./components/Performance";
 
 const Dashboard = () => {
 
-    const { userData, userName, userMacros, userScore } = useUserData();
+    const { userName, userMacros, userScore } = useUserData();
     const { userActivity } = useUserActivity();
     const { userAverageSession } = useUserAverageSession();
     const { userPerformance } = useUserPerformance();
