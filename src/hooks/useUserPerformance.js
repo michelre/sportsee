@@ -8,6 +8,43 @@ const useUserPerformance = () => {
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
+    //Format user performance data
+    const formatPerfData = (perfData) => {
+        let formattedPerfData = perfData.data.map((perf) => {
+            const PerfKindNumber = perf.kind;
+            return {
+                value: perf.value,
+                kind: perfData.kind[PerfKindNumber]
+            }
+        })
+        //Reverse array to appear in correct order on radar chart
+        formattedPerfData = formattedPerfData.reverse();
+        //Translate perf kinds from english to french
+        formattedPerfData.forEach((perf) => {
+            if (perf.kind === "intensity") {
+                perf.kind = "Intensité"
+            }
+            if (perf.kind === "speed") {
+                perf.kind = "Vitesse"
+            }
+            if (perf.kind === "strength") {
+                perf.kind = "Force"
+            }
+            if (perf.kind === "endurance") {
+                perf.kind = "Endurance"
+            }
+            if (perf.kind === "energy") {
+                perf.kind = "Energie"
+            }
+            if (perf.kind === "cardio") {
+                perf.kind = "Cardio"
+            }
+        })
+
+
+        return formattedPerfData;
+    }
+
     useEffect(() => {
         const abortCont = new AbortController();
 
@@ -20,7 +57,7 @@ const useUserPerformance = () => {
             })
             .then(data => {
                 setIsPending(false);
-                setUserPerformance(data.data);
+                setUserPerformance(formatPerfData(data.data));
                 setError(null);
             })
             .catch(err => {
@@ -37,9 +74,6 @@ const useUserPerformance = () => {
         return () => abortCont.abort();
     }, [`http://localhost:3000/user/${userId}/performance`])
 
-    // //Check data
-    // console.log("PERFORMANCE-------");
-    // console.log(userPerformance);
 
     return { userPerformance, isPending, error };
 }

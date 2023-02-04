@@ -8,6 +8,7 @@ import useUserData from "./hooks/useUserData";
 import useUserPerformance from "./hooks/useUserPerformance";
 import DailyActivity from "./components/DailyActivity";
 import AverageSession from "./components/AverageSession";
+import Performance from "./components/Performance";
 
 
 const Dashboard = () => {
@@ -23,6 +24,7 @@ const Dashboard = () => {
             <div className="charts-container" >
                 <DailyActivity userActivity= {userActivity} />
                 <AverageSession userAverageSession={userAverageSession}/>
+                <Performance userPerformance= {userPerformance}/>
                 <Score userScore={userScore} />
                 <MacrosCounts userMacros={userMacros} />
             </div>
