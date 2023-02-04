@@ -1,0 +1,14 @@
+.dashboard-body{
+    padding-top: 65px;
+    padding-left: 111px;
+}
+
+.charts-container{
+    display: flex;
+    gap: 31px;
+}
+
+.session-performance-score-container{
+    display: flex;
+    justify-content: space-between;
+}

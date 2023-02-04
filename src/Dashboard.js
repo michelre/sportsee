@@ -19,13 +19,17 @@ const Dashboard = () => {
     const { userPerformance } = useUserPerformance();
 
     return (
-        <div>
+        <div className="dashboard-body">
             <Greetings userName={userName} />
             <div className="charts-container" >
-                <DailyActivity userActivity= {userActivity} />
-                <AverageSession userAverageSession={userAverageSession}/>
-                <Performance userPerformance= {userPerformance}/>
-                <Score userScore={userScore} />
+                <div className="left-charts-container">
+                    <DailyActivity userActivity={userActivity} />
+                    <div className="session-performance-score-container">
+                        <AverageSession userAverageSession={userAverageSession} />
+                        <Performance userPerformance={userPerformance} />
+                        <Score userScore={userScore} />
+                    </div>
+                </div>
                 <MacrosCounts userMacros={userMacros} />
             </div>
         </div>
