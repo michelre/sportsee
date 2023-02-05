@@ -46,3 +46,15 @@ Jean Chane-to
 - Install dependencies : ``` npm install ```
 - Install/launch back end app, follow instructions on [API repo](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard).
 - Launch the project : ``` npm start ```
+
+### 3.3 Displaying data
+At the moment only two users present (user id:12 and user id:18) on data base.
+
+Project set on user id:12, to display user id:18 redifine userId variable at top of 
+
+src/hooks/useUserData.js
+src/hooks/useUserActivity.js
+src/hooks/useUserPerformance.js
+src/hooks/useUserAverageSession.js
+
+![Project Image](./src/assets/userid_mock_screenshot.png)
