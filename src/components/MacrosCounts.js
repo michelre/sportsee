@@ -4,9 +4,15 @@ import proteinIcon from '../assets/protein-icon.png';
 import carbsIcon from '../assets/carbs-icon.png';
 import lipidIcon from '../assets/fat-icon.png';
 import PropTypes from 'prop-types';
-
+/**
+ * Create MacrosCounts component
+ * @param {userMacros} Object
+ * @example userMacros : {"calorieCount":<integer>, "proteinCount":<integer>, "carbohydrateCount":<integer>, "lipidCount":<integer>}
+ * @returns display MacrosCounts component
+ */
 const MacrosCounts = ({userMacros}) => {
 
+  //optional chaining to ensure object does exist prior to defining values
   const calorieCount = userMacros?.calorieCount;
   const proteinCount = userMacros?.proteinCount;
   const carbsCount = userMacros?.carbohydrateCount;

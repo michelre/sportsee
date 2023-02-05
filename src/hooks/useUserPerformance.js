@@ -1,14 +1,24 @@
 import { useState, useEffect } from 'react';
 
-//Mock userId
+//Mock userId define as 12 or 18
 let userId = 12;
 
+/**
+ * Fetches and format user performance  data
+ * @returns userPerformance: formatted user performance data (array of objects)
+ * @example userPerformance: [{value: <integer>, kind: <string>}]
+ */
 const useUserPerformance = () => {
     const [userPerformance, setUserPerformance] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
-    //Format user performance data
+    /**
+     * Format user performance data
+     * @param {*} perfData: array 
+     * @returns formatted performance data: array of objects with "kind" attributed to corresponding string/ "value" and translated to french
+     * @example userPerformance: [{value: <integer>, kind: <string>}]
+     */
     const formatPerfData = (perfData) => {
         let formattedPerfData = perfData.data.map((perf) => {
             const PerfKindNumber = perf.kind;
@@ -46,6 +56,7 @@ const useUserPerformance = () => {
     }
 
     useEffect(() => {
+        //Setup for cleanup
         const abortCont = new AbortController();
 
         fetch(`http://localhost:3000/user/${userId}/performance`, { signal: abortCont.signal })
@@ -73,7 +84,6 @@ const useUserPerformance = () => {
         // abort the fetch
         return () => abortCont.abort();
     }, [`http://localhost:3000/user/${userId}/performance`])
-
 
     return { userPerformance, isPending, error };
 }

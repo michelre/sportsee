@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import './Greetings.css';
 
-
+/**
+ * Create greeting component
+ * @param {userName} string
+ * @returns display greeting component
+ */
 const Greetings = ({ userName }) => {
 
     return (

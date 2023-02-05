@@ -9,9 +9,20 @@ import {
     Bar,
 } from "recharts";
 import PropTypes from "prop-types";
-
+/**
+ * Create daily activity bar chart component
+ * @param {userActivity} array of objects
+ * @example userActivity : [{"day":<date>, "kilogram":<integer>, "calories":<integer>}
+ * @returns display daily activity bar chart component
+ */
 const DailyActivity = ({ userActivity }) => {
 
+    /**
+     * Customize line chart tooltip
+     * @param {active} see recharts doc https://recharts.org/en-US/api/Tooltip
+     *@param {payload} see recharts doc https://recharts.org/en-US/api/Tooltip
+     * @returns custom chart tooltip
+     */
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (

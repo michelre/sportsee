@@ -10,7 +10,10 @@ import DailyActivity from "./components/DailyActivity";
 import AverageSession from "./components/AverageSession";
 import Performance from "./components/Performance";
 
-
+/**
+ * Create dashboard component and passes data to children via props
+ * @returns display dashboard component
+ */
 const Dashboard = () => {
 
     const { userName, userMacros, userScore } = useUserData();

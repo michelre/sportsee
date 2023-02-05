@@ -9,9 +9,20 @@ import {
     ResponsiveContainer
 } from "recharts";
 import PropTypes from "prop-types";
-
+/**
+ * Create average session line chart component
+ * @param {userAverageSession} array of objects
+ * @example userAverageSession: [{"day":<integer>,"sessionLength":<integer>}]
+ * @returns display average session line chart component
+ */
 const AverageSession = ({ userAverageSession }) => {
 
+    /**
+     * Customize line chart tooltip
+     * @param {active} see recharts doc https://recharts.org/en-US/api/Tooltip
+     *@param {payload} see recharts doc https://recharts.org/en-US/api/Tooltip
+     * @returns custom chart tooltip
+     */
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (

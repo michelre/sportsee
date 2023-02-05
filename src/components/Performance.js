@@ -8,7 +8,12 @@ import {
     PolarRadiusAxis,
     Radar,
 } from "recharts";
-
+/**
+ * Create user performance radar chart component
+ * @param {userPerformance} array of objects
+ * @example userPerformance: [{value: <integer>, kind: <string>}]
+ * @returns display user performance radar chart component
+ */
 const Performance = ({ userPerformance }) => {
     return (
         <div className="radarChart chart-box">
@@ -44,8 +49,6 @@ const Performance = ({ userPerformance }) => {
                         stroke="transparent"
                         fill="#FF0101"
                         fillOpacity={0.6} />
-
-
                 </RadarChart>
             </ResponsiveContainer>
         </div>

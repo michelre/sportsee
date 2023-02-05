@@ -4,7 +4,10 @@ import swimIcon from '../assets/icon_swim.png';
 import cycleIcon from '../assets/icon_cycle.png';
 import weightsIcon from '../assets/icon_weights.png';
 import { Link } from 'react-router-dom';
-
+/**
+ * Create side bar component
+ * @returns display side bar component
+ */
 const SideBar = () => {
     return (
         <div className="sidebar">

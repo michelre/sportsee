@@ -4,6 +4,10 @@ import Header from './components/Header';
 import SideBar from './components/SideBar';
 import Dashboard from './Dashboard';
 
+/**
+ * Creates app component and routing with React Router
+ * @returns display app component
+ */
 function App() {
   return (
     <Router>

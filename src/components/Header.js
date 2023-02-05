@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import "./Header.css";
-
+/**
+ * Create Header component
+ * @returns display Header component
+ */
 const Header = () => {
   return (
     <header>

@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 
-//Mock userId
+//Mock userId define as 12 or 18
 let userId = 12;
 
+/**
+ * Fetches and format user activity data
+ * @returns Formatted userActivity data
+ * @example userActivity : [{"day":<date>, "kilogram":<integer>, "calories":<integer>}
+ */
 const useUserActivity = () => {
     const [userActivity, setUserActivity] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        //Setup for cleanup
         const abortCont = new AbortController();
 
         fetch(`http://localhost:3000/user/${userId}/activity`, { signal: abortCont.signal })
@@ -20,6 +26,7 @@ const useUserActivity = () => {
             })
             .then(data => {
                 setIsPending(false);
+                //Access and set required data
                 setUserActivity(data.data.sessions);
                 setError(null);
             })
@@ -33,7 +40,7 @@ const useUserActivity = () => {
                 }
             })
 
-        // abort the fetch
+        // Clean up effect by aborting the fetch
         return () => abortCont.abort();
     }, [`http://localhost:3000/user/${userId}/activity`])
 

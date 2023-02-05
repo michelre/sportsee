@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react';
 
-//Mock userId
+//Mock userId define as 12 or 18
 let userId = 12;
 
+/**
+ * Fetches and format user activity data
+ * @returns userdata, userName, userMacros, userScore
+ * @example userData :  {"id": <integer>, "userInfos":{"firstName": <string>, "lastName": <string> , "age":<integer>}, "todayScore":<number>, "keyData":{"calorieCount":<integer>, "proteinCount":<integer>, "carbohydrateCount":<integer>, "lipidCount":<integer>}
+ * @example username : <string>
+ * @example user macros : {"calorieCount":<integer>, "proteinCount":<integer>, "carbohydrateCount":<integer>, "lipidCount":<integer>}
+ * @example userScore : <number>
+ */
 const useUserData = () => {
     const [userData, setUserData] = useState(null);
     const [userName, setUserName] = useState(null);
@@ -12,6 +20,7 @@ const useUserData = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        //Setup for cleanup
         const abortCont = new AbortController();
 
         fetch(`http://localhost:3000/user/${userId}`, { signal: abortCont.signal })
@@ -39,7 +48,7 @@ const useUserData = () => {
                 }
             })
 
-        // abort the fetch
+         // Clean up effect by aborting the fetch
         return () => abortCont.abort();
     }, [`http://localhost:3000/user/${userId}`])
 

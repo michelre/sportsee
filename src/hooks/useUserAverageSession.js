@@ -1,14 +1,24 @@
 import { useState, useEffect } from 'react';
 
-//Mock userId
+//Mock userId define as 12 or 18
 let userId = 12;
 
+/**
+ * Fetches and format user average session data
+ * @returns Formatted user average session data userAverageSession
+ * @example userAverageSession: [{"day":<integer>,"sessionLength":<integer>}]
+ */
 const useUserAverageSession = () => {
     const [userAverageSession, setUserAverageSession] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
-    //Format data, replaces day number by initial
+    /**
+     * Format data, replaces number by day initial
+     * @param {array} sessionData - array of objects containing data for graph
+     * @example sessionData: [{"day":<integer>,"sessionLength":<integer>}]
+     * @returns 
+     */
     const numberToDay = (sessionData) => {
         const formattedSessionData = sessionData.map((obj) => {
             if (obj.day === 1) {
@@ -61,6 +71,7 @@ const useUserAverageSession = () => {
     }
 
     useEffect(() => {
+        //Setup for cleanup
         const abortCont = new AbortController();
 
         fetch(`http://localhost:3000/user/${userId}/average-sessions`, { signal: abortCont.signal })
@@ -85,7 +96,7 @@ const useUserAverageSession = () => {
                 }
             })
 
-        // abort the fetch
+        // Clean up effect by aborting the fetch
         return () => abortCont.abort();
     }, [`http://localhost:3000/user/${userId}/average-sessions`])
 

@@ -4,11 +4,15 @@ import './Score.css';
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 
 import PropTypes from "prop-types";
-
+/**
+ * Create user score radial bar chart
+ * @param {userScore} number (two decimals)
+ * @returns display user score radial bar chart
+ */
 const Score = ({ userScore }) => {
-
+  //convert score to percentage
   const userScorePercentage = userScore * 100;
-
+  //convert data for radial bar chart
   const data = [
     {
       score: userScorePercentage,
