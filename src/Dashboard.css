@@ -1,6 +1,7 @@
 .dashboard-body{
     padding-top: 30px;
     padding-left: 30px;
+    width: calc(100% - 117px);
 }
 
 .charts-container{
@@ -14,5 +15,15 @@
 }
 
 .left-charts-container {
-    width: 66%;
+    width: 75%;
+}
+
+@media screen and (max-width: 1179px){
+    .charts-container{
+        flex-wrap: wrap;
+    }
+
+    .left-charts-container {
+        width: 100%;
+    }
 }

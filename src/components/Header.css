@@ -6,6 +6,7 @@ header {
     height: 91px;
     align-items: center;
     padding-left: 29px;
+    min-width: 100vw;
 }
 
 .main-logo {
