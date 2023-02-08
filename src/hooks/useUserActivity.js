@@ -17,7 +17,7 @@ const useUserActivity = () => {
         //Setup for cleanup
         const abortCont = new AbortController();
 
-        fetch(`http://localhost:3000/user/${userId}/activity`, { signal: abortCont.signal })
+        fetch(`http://localhost:3000/user/${userId}/activity`)
             .then(res => {
                 if (!res.ok) { // error coming back from server
                     throw Error('could not fetch the data for that resource');

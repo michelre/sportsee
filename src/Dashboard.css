@@ -1,6 +1,6 @@
 .dashboard-body{
-    padding-top: 65px;
-    padding-left: 111px;
+    padding-top: 30px;
+    padding-left: 30px;
 }
 
 .charts-container{
@@ -11,4 +11,8 @@
 .session-performance-score-container{
     display: flex;
     justify-content: space-between;
+}
+
+.left-charts-container {
+    width: 66%;
 }

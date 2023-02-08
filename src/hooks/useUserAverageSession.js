@@ -17,7 +17,7 @@ const useUserAverageSession = () => {
      * Format data, replaces number by day initial
      * @param {array} sessionData - array of objects containing data for graph
      * @example sessionData: [{"day":<integer>,"sessionLength":<integer>}]
-     * @returns 
+     * @returns
      */
     const numberToDay = (sessionData) => {
         const formattedSessionData = sessionData.map((obj) => {
@@ -74,7 +74,7 @@ const useUserAverageSession = () => {
         //Setup for cleanup
         const abortCont = new AbortController();
 
-        fetch(`http://localhost:3000/user/${userId}/average-sessions`, { signal: abortCont.signal })
+        fetch(`http://localhost:3000/user/${userId}/average-sessions`)
             .then(res => {
                 if (!res.ok) { // error coming back from server
                     throw Error('could not fetch the data for that resource');

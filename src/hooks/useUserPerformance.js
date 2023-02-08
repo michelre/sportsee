@@ -15,7 +15,7 @@ const useUserPerformance = () => {
 
     /**
      * Format user performance data
-     * @param {*} perfData: array 
+     * @param {*} perfData: array
      * @returns formatted performance data: array of objects with "kind" attributed to corresponding string/ "value" and translated to french
      * @example userPerformance: [{value: <integer>, kind: <string>}]
      */
@@ -59,7 +59,7 @@ const useUserPerformance = () => {
         //Setup for cleanup
         const abortCont = new AbortController();
 
-        fetch(`http://localhost:3000/user/${userId}/performance`, { signal: abortCont.signal })
+        fetch(`http://localhost:3000/user/${userId}/performance`)
             .then(res => {
                 if (!res.ok) { // error coming back from server
                     throw Error('could not fetch the data for that resource');

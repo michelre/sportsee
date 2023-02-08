@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     gap: 39px;
-    width: 20vw;
 }
 
 .macro-container {
